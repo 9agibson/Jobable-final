@@ -4,7 +4,6 @@ const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
       <label htmlFor={name} className='form-label'>
         {labelText || name}
       </label>
-
       <select
         name={name}
         value={value}
@@ -16,10 +15,11 @@ const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
             <option key={index} value={itemValue}>
               {itemValue}
             </option>
-          );
+          )
         })}
       </select>
     </div>
   )
 }
+
 export default FormRowSelect

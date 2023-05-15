@@ -1,8 +1,10 @@
-import { FormRow, Alert, FormRowSelect } from '../../components';
-import { useAppContext } from '../../context/AppContext';
-import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import { FormRow, FormRowSelect, Alert } from '../../components'
+import { useAppContext } from '../../context/appContext'
+import Wrapper from '../../assets/wrappers/DashboardFormPage'
+
 const AddJob = () => {
   const {
+    isLoading,
     isEditing,
     showAlert,
     displayAlert,
@@ -17,38 +19,34 @@ const AddJob = () => {
     clearValues,
     createJob,
     editJob,
-  } = useAppContext();
+  } = useAppContext()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!position || !company || !jobLocation) {
-      displayAlert();
-      return;
+      displayAlert()
+      return
     }
-    if(isEditing){
+    if (isEditing) {
       editJob()
       return
     }
     createJob()
-  };
-
-  
+  }
   const handleJobInput = (e) => {
-    handleChange({ name: e.target.name, value: e.target.value })
-  };
-  
-
-  
+    const name = e.target.name
+    const value = e.target.value
+    handleChange({ name, value })
+  }
 
   return (
     <Wrapper>
       <form className='form'>
-        <h3>{isEditing ? 'edit job' : 'add job'} </h3>
+        <h3>{isEditing ? 'edit job' : 'add job'}</h3>
         {showAlert && <Alert />}
-
-        {/* position */}
         <div className='form-center'>
+          {/* position */}
           <FormRow
             type='text'
             name='position'
@@ -65,63 +63,42 @@ const AddJob = () => {
           {/* location */}
           <FormRow
             type='text'
-            labelText='location'
+            labelText='job location'
             name='jobLocation'
             value={jobLocation}
             handleChange={handleJobInput}
           />
-          {/* job type */}
-          <div className='form-row'>
-            <label htmlFor='jobType' className='form-label'>
-              job type
-            </label>
-
-            <select
-              name='jobType'
-              value={jobType}
-              onChange={handleJobInput}
-              className='form-select'
-            >
-              {jobTypeOptions.map((itemValue, index) => {
-                return (
-                  <option key={index} value={itemValue}>
-                    {itemValue}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-
           {/* job status */}
           <FormRowSelect
-                name='status'
-                value={status}
-                handleChange={handleJobInput}
-                list={statusOptions}
-              />
-
-              {/* job type */}
-              <FormRowSelect
-                labelText='type'
-                name='jobType'
-                value={jobType}
-                handleChange={handleJobInput}
-                list={jobTypeOptions}
-              />
-            
-
+            name='status'
+            value={status}
+            handleChange={handleJobInput}
+            list={statusOptions}
+          />
+          {/* job type */}
+          <FormRowSelect
+            name='jobType'
+            labelText='job type'
+            value={jobType}
+            handleChange={handleJobInput}
+            list={jobTypeOptions}
+          />
+          {/* btn container */}
           <div className='btn-container'>
             <button
-              className='btn btn-block submit-btn'
               type='submit'
+              className='btn btn-block submit-btn'
               onClick={handleSubmit}
+              disabled={isLoading}
             >
               submit
             </button>
             <button
               className='btn btn-block clear-btn'
-              
-              onClick={(e) => {e.preventDefault(); clearValues()}}
+              onClick={(e) => {
+                e.preventDefault()
+                clearValues()
+              }}
             >
               clear
             </button>
@@ -129,7 +106,7 @@ const AddJob = () => {
         </div>
       </form>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default AddJob;
+export default AddJob
