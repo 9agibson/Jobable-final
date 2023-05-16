@@ -3,7 +3,7 @@ import Wrapper from '../assets/wrappers/LandingPage';
 import { Logo } from '../components';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../context/AppContext'
 import React from 'react';
 
 const Landing = () => {

@@ -1,4 +1,4 @@
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../context/AppContext'
 import { useEffect } from 'react';
 import Loading from './Loading';
 import Job from './Job';

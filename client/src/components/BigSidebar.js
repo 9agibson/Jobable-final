@@ -1,4 +1,4 @@
-import { useAppContext } from '../context/appContext'
+import { useAppContext } from '../context/AppContext'
 import NavLinks from './NavLinks'
 import Logo from '../components/Logo'
 import Wrapper from '../assets/wrappers/BigSidebar'

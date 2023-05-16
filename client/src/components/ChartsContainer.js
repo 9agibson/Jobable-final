@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import BarChart from './BarChart'
 import AreaChart from './AreaChart'
-import { useAppContext } from '../context/appContext'
+import { useAppContext } from '../context/AppContext'
 import Wrapper from '../assets/wrappers/ChartsContainer'
 
 const ChartsContainer = () => {

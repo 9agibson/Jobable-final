@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useAppContext } from '../../context/appContext'
+import { useAppContext } from '../context/AppContext'
 import { StatsContainer, Loading, ChartsContainer } from '../../components'
 
 const Stats = () => {
