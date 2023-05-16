@@ -9,4 +9,3 @@ const attachCookie = ({ res, token }) => {
 };
 
 export default attachCookie;
-  

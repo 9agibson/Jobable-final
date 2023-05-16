@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken';
-import { UnauthenticatedError } from '../errors/index.js';
+import { UnAuthenticatedError } from '../errors/index.js';
 
 const auth = async (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
-    throw new UnauthenticatedError('Authentication Invalid');
+    throw new UnAuthenticatedError('Authentication Invalid');
   }
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
@@ -12,7 +12,7 @@ const auth = async (req, res, next) => {
     req.user = { userId: payload.userId, testUser };
     next();
   } catch (error) {
-    throw new UnauthenticatedError('Authentication Invalid');
+    throw new UnAuthenticatedError('Authentication Invalid');
   }
 };
 
