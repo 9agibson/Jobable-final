@@ -1,6 +1,6 @@
 import React, { useReducer, useContext, useEffect } from 'react';
 
-import reducer from './reducer';
+import reducer from './reducer'
 import axios from 'axios';
 import {
   DISPLAY_ALERT,
@@ -286,6 +286,7 @@ const AppProvider = ({ children }) => {
   };
   useEffect(() => {
     getCurrentUser();
+    // eslint-disable-next-line
   }, []);
 
   return (
