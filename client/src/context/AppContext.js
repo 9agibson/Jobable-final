@@ -32,7 +32,7 @@ import {
   CHANGE_PAGE,
   GET_CURRENT_USER_BEGIN,
   GET_CURRENT_USER_SUCCESS,
-} from './actions';
+} from './Actions';
 
 const initialState = {
   userLoading: true,
