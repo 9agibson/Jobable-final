@@ -6,7 +6,7 @@ import {
   SharedLayout,
   Stats,
   AddJob,
-} from './pages/dashboard'
+} from './pages/dashboard/Index.js'
 
 function App() {
   return (
